@@ -1,6 +1,7 @@
 from django.urls import path
-from teacher.views import HomeApiView
+from teacher.views import RegisterClassApiView, TeacherApiView
 
 urlpatterns = [
-    path('', HomeApiView.as_view()),
+    path('teachers/', TeacherApiView.as_view()),
+    path('teachers/<int:id>/classes/', RegisterClassApiView.as_view())
 ]
