@@ -8,6 +8,10 @@ class Teacher(models.Model):
     description = models.TextField(null=False, blank=False)
     photo = models.URLField(max_length=255, null=False, blank=False)
 
+    def __str__(self):
+        return f"Teacher [name={self.name}]"
+
+
 class Class(models.Model):
     name = models.CharField(max_length=100, null=False, blank=False)
     email = models.EmailField(max_length=255, null=False, blank=False)
@@ -18,3 +22,6 @@ class Class(models.Model):
         null=False,
         blank=False
     )
+
+    def __str__(self):
+        return f"Class [name={self.name}]"
