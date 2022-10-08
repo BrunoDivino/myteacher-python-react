@@ -37,6 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # my apps
+    'teacher.apps.TeacherConfig',
+    #add-on frameworks
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
