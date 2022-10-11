@@ -5,6 +5,7 @@ import { Description, EmptyList, Informations, ItemList, ListStyled, Name, Photo
 
 interface ListProps {
     teachers: Teacher[],
+    onSelect: (teacher: Teacher) => void
 }
 
 const List = (props: ListProps) => {
@@ -19,7 +20,7 @@ const List = (props: ListProps) => {
                                 <Name>{teacher.name}</Name>
                                 <Value>{FormatService.monetaryValue(teacher.value_hour)} by hour</Value>
                                 <Description>{FormatService.textLimit(teacher.description, 200)}</Description>
-                                <Button sx={{ width: '70%' }}>Schedule class with {teacher.name}</Button>
+                                <Button onClick={() => props.onSelect(teacher)} sx={{ width: '70%' }}>Schedule class with {teacher.name}</Button>
                             </Informations>
                         </ItemList>
                     ))}  

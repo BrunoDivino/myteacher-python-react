@@ -12,7 +12,7 @@ class Teacher(models.Model):
         return f"Teacher [name={self.name}]"
 
 
-class Class(models.Model):
+class Lecture(models.Model):
     name = models.CharField(max_length=100, null=False, blank=False)
     email = models.EmailField(max_length=255, null=False, blank=False)
     teacher = models.ForeignKey(
@@ -24,4 +24,4 @@ class Class(models.Model):
     )
 
     def __str__(self):
-        return f"Class [name={self.name}]"
+        return f"Lecture [name={self.name}]"

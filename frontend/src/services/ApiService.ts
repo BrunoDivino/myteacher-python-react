@@ -5,4 +5,4 @@ export const ApiService = axios.create({
     headers: {
         'Content-Type': 'application/json'
     }
-})
+});

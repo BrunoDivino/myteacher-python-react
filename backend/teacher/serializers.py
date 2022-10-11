@@ -1,7 +1,7 @@
 from django.forms import ValidationError
 from rest_framework import serializers
 
-from teacher.models import Class, Teacher
+from teacher.models import Lecture, Teacher
 
 class TeacherSerializer(serializers.ModelSerializer):
     class Meta:
@@ -9,8 +9,8 @@ class TeacherSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class RegisterClassSerializer(serializers.Serializer):
-    email = serializers.EmailField(max_length=255)
     name = serializers.CharField(max_length=100)
+    email = serializers.EmailField(max_length=255)
 
     def validate_name(self, value):
         if len(value) < 3:
@@ -19,5 +19,5 @@ class RegisterClassSerializer(serializers.Serializer):
 
 class ClassSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Class
+        model = Lecture
         fields = '__all__'

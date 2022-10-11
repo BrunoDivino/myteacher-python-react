@@ -7,7 +7,7 @@ from rest_framework.status import (
     HTTP_400_BAD_REQUEST
 )
 
-from teacher.models import Teacher, Class
+from teacher.models import Teacher, Lecture
 from teacher.serializers import (
     ClassSerializer,
     RegisterClassSerializer, 
@@ -27,11 +27,12 @@ class RegisterClassApiView(APIView):
 
         serializer = RegisterClassSerializer(data=request.data)
         if serializer.is_valid():
-            new_class = Class(
-                name=serializer.validated_data.get('name'),
-                email=serializer.validated_data.get('email'),
-                teacher=teacher
+            new_class = Lecture(
+                name = serializer.validated_data.get("name"),
+                email = serializer.validated_data.get("email"),
+                teacher = teacher
             )
+            
             new_class.save()
             class_serializer = ClassSerializer(new_class, many=False)
             return Response(class_serializer.data, status=HTTP_201_CREATED)
